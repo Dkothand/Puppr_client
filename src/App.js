@@ -2,6 +2,16 @@ import React from 'react';
 import DogList from './components/DogList.js'
 import AuthForm from './components/AuthForm.js'
 
+let baseURL = process.env.REACT_APP_BASEURL
+
+//alternate baseURL = 'https://afternoon-shore-81372.herokuapp.com'
+
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:3000'
+} else {
+  baseURL = 'https://afternoon-shore-81372.herokuapp.com'
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props)
