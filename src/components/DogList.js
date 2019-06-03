@@ -25,7 +25,7 @@ class DogList extends React.Component {
     }
     getDogs() {
         // Returns array of dogs from API /dogs index route and sets this.state.dogs to returned json
-        fetch('/dogs')
+        fetch(baseURL + '/dogs')
         // .then(res => res.json())
         .then(res => res.text())
         .then(text => console.log(text))

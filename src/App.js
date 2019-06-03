@@ -25,7 +25,7 @@ class App extends React.Component {
   // function for user login
   authenticateUser(formInputs) {
     console.log(formInputs)
-    fetch('/users/login', {
+    fetch(baseURL + '/users/login', {
       // Need to call JSON.stringify on body data
       // user is the param rails login() is looking for
       body: JSON.stringify({
@@ -51,7 +51,7 @@ class App extends React.Component {
 
   // function for user signup
   registerUser(formInputs) {
-    fetch('/users', {
+    fetch(baseURL + '/users', {
       body: JSON.stringify({
         user: formInputs
       }),
