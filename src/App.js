@@ -1,5 +1,5 @@
 import React from 'react';
-// import DogList from './components/DogList.js'
+import DogList from './components/DogList.js'
 import AuthForm from './components/AuthForm.js'
 
 class App extends React.Component {
@@ -10,6 +10,7 @@ class App extends React.Component {
     }
     this.authenticateUser = this.authenticateUser.bind(this)
   }
+  // function for user login
   authenticateUser(formInputs) {
     console.log(formInputs)
     fetch('/users/login', {
@@ -35,14 +36,34 @@ class App extends React.Component {
     })
     .catch(err => console.error(err))
   }
+
+  // function for user signup
+  registerUser(formInputs) {
+    fetch('/users', {
+      body: JSON.stringify({
+        user: formInputs
+      }),
+      method: 'POST',
+      headers: {
+        "Content-type": "application/json"
+      }
+    }).then(res => res.json())
+    .then(resJSON => console.log(resJSON))
+    .catch(err => console.error(err))
+
+  }
   render() {
     return (
       <div className="App">
         <h1>Hello World!</h1>
-        {/* <DogList /> */}
+        <DogList />
         <h2>Login</h2>
 
         <AuthForm handleSubmit={this.authenticateUser} />
+
+        <h2>Signup</h2>
+
+        <AuthForm handleSubmit={this.registerUser} />
 
       </div>
     );
