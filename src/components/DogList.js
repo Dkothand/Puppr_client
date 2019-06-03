@@ -1,5 +1,17 @@
 import React from 'react'
 
+let baseURL = process.env.REACT_APP_BASEURL
+
+//alternate baseURL = 'https://afternoon-shore-81372.herokuapp.com'
+
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:3000'
+} else {
+  baseURL = 'https://afternoon-shore-81372.herokuapp.com'
+}
+
+console.log('current base URL:', baseURL)
+
 class DogList extends React.Component {
     constructor(props) {
         super(props)
