@@ -12,6 +12,8 @@ if (process.env.NODE_ENV === 'development') {
   baseURL = 'https://afternoon-shore-81372.herokuapp.com'
 }
 
+console.log('current baseURL:', baseURL)
+
 class App extends React.Component {
   constructor(props) {
     super(props)
