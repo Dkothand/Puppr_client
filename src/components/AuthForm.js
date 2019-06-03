@@ -11,7 +11,6 @@ class AuthForm extends React.Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-    // TODO: add handleSubmit
     handleChange(event) {
         this.setState({
             [event.target.id] : event.target.value
@@ -20,7 +19,7 @@ class AuthForm extends React.Component {
     handleSubmit(event) {
         // Stop page reload
         event.preventDefault()
-        // Pass state up
+        // Pass state up to authenticateUser()
         this.props.handleSubmit({
             username: this.state.username,
             password: this.state.password

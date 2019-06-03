@@ -19,7 +19,7 @@ class App extends React.Component {
         user: formInputs
       }),
       method: 'POST',
-      // Need this header
+      // Need this header so server can see params
       headers: {
         "Content-type": "application/json"
       }
