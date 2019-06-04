@@ -38,15 +38,13 @@ class Register extends React.Component {
         }
         }).then(res => res.json())
         .then(resJSON => {
-        console.log(resJSON)
-        // Display username when login successful
-        // this.setState({
-        // user: resJSON.user.username
-        // })
+        // console.log(resJSON)
         // Save token to localStorage
         localStorage.setItem('token', JSON.stringify(resJSON.token))
         })
         .catch(err => console.error(err))
+        // Redirects to home page on successful login
+        this.props.history.push("/home")
     }
     // function for user signup
     registerUser(formInputs) {
