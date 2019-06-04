@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import Register from './components/Register'
 import Home from './components/Home'
+import Profile from './components/Profile'
 import * as serviceWorker from './serviceWorker';
 
 const routing = (
@@ -13,6 +14,7 @@ const routing = (
         <Route exact path="/" component={App} />
         <Route path="/login" component={Register}/>
         <Route path="/home" component={Home}/>
+        <Route path="/profile" component={Profile}/>
       </div>
     </Router>
   )

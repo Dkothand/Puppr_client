@@ -56,7 +56,9 @@ class Home extends React.Component {
                 ? <div>
                     <h1>Hello {this.state.user}!</h1>
                     <button onClick={this.logout}>Logout</button>
-                    <button>My Profile</button>
+                    <Link to="/profile">
+                        <button>My Profile</button>
+                    </Link>
                   </div>
                 : <div>
                     <h1>Browse Dogs</h1>
