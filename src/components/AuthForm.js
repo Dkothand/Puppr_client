@@ -24,6 +24,10 @@ class AuthForm extends React.Component {
             username: this.state.username,
             password: this.state.password
         })
+        this.setState({
+            username: '',
+            password: ''
+        })
     }
     render() {
         return(
