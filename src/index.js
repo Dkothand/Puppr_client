@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Route, Link, BrowserRouter as Router} from 'react-router-dom';
+import {Route, BrowserRouter as Router} from 'react-router-dom';
 import './index.css';
 import App from './App';
 import Register from './components/Register'
+import Home from './components/Home'
 import * as serviceWorker from './serviceWorker';
 
 const routing = (
@@ -11,6 +12,7 @@ const routing = (
       <div>
         <Route exact path="/" component={App} />
         <Route path="/users" component={Register}/>
+        <Route path="/home" component={Home}/>
       </div>
     </Router>
   )

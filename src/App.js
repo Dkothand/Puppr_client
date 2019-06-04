@@ -12,6 +12,9 @@ class App extends React.Component {
         <Link to="/users">
           <button>Register</button>
         </Link>
+        <Link to="/home">
+          <button>Browse</button>
+        </Link>
       </div>
     );
   }
