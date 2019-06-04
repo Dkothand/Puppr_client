@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import DogList from './DogList.js'
 
 let baseURL = process.env.REACT_APP_BASEURL
@@ -53,10 +54,17 @@ class Home extends React.Component {
             <div>
                 {this.state.isAuthenticated
                 ? <div>
-                    <h1>Welcome {this.state.user}!</h1>
+                    <h1>Hello {this.state.user}!</h1>
                     <button onClick={this.logout}>Logout</button>
+                    <button>My Profile</button>
                   </div>
-                : <h1>Browse Dogs</h1>}
+                : <div>
+                    <h1>Browse Dogs</h1>
+                    <Link to="/login">
+                        <button>Signup</button>
+                    </Link>
+                  </div>
+                }
                 
                 <DogList />
             </div>
