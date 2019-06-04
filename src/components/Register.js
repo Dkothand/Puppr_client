@@ -24,7 +24,7 @@ class Register extends React.Component {
     }
     // function for user login
     authenticateUser(formInputs) {
-        console.log(formInputs)
+        // console.log(formInputs)
         fetch(baseURL + '/users/login', {
         // Need to call JSON.stringify on body data
         // user is the param rails login() is looking for
@@ -38,13 +38,15 @@ class Register extends React.Component {
         }
         }).then(res => res.json())
         .then(resJSON => {
-        // console.log(resJSON)
-        // Save token to localStorage
-        localStorage.setItem('token', JSON.stringify(resJSON.token))
+            console.log(resJSON)
+            // Save token and user info to localStorage
+            localStorage.setItem('token', JSON.stringify(resJSON.token))
+            localStorage.setItem('user', JSON.stringify(resJSON.user.username))
+            localStorage.setItem('id', JSON.stringify(resJSON.user.id))
+            this.props.history.push("/home")
         })
         .catch(err => console.error(err))
         // Redirects to home page on successful login
-        this.props.history.push("/home")
     }
     // function for user signup
     registerUser(formInputs) {
