@@ -6,7 +6,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Puppr</h1>
-        <Link to="/users">
+        <Link to="/login">
           <button>Register</button>
         </Link>
         <Link to="/home">

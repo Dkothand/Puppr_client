@@ -46,7 +46,7 @@ class Home extends React.Component {
         // Clear token and user info from localStorage
         localStorage.clear()
         // Redirect to login page
-        this.props.history.push("/users")
+        this.props.history.push("/login")
     }
     render() {
         return(
