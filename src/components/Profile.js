@@ -46,9 +46,22 @@ class Profile extends React.Component {
         .catch(err => console.error(err))        
     }
     handleAddDog(formInputs) {
-        console.log(formInputs)
+        // console.log(formInputs)
         //send fetch post to /users/:id/dogs
+        fetch(baseURL + `/users/${this.state.userId}/dogs`, {
+            method: 'POST',
+            body: JSON.stringify(formInputs),
+            headers: {
+                "Content-type": "application/json"
+            }
+        }).then(res => res.json())
         //update state on server response
+        .then(json => {
+            console.log(json)
+            this.setState({
+                dog: json.dog
+            })
+        }).catch(err => console.error(err))
     }
     logout() {
         localStorage.clear()
@@ -79,16 +92,21 @@ class Profile extends React.Component {
                         {this.state.dog.bio}
                     </div>
 
-                    {this.state.photos.map(photo => {
-                        return(
-                            <div key={photo.id}>
-                                <img style={imgStyle}
-                                src={photo.img_link}
-                                alt={photo.details}/>
-                                <div>{photo.details}</div> 
-                            </div>   
-                        )
-                        })
+                    {(this.state.photos &&this.state.photos.length) 
+                    ? <div>
+                        {this.state.photos.map(photo => {
+                            return(
+                                <div key={photo.id}>
+                                    <img style={imgStyle}
+                                    src={photo.img_link}
+                                    alt={photo.details}/>
+                                    <div>{photo.details}</div> 
+                                </div>   
+                            )
+                            })
+                        }
+                      </div>
+                    : <p>No photos!</p>
                     }
                   </main>
                 : <div>
