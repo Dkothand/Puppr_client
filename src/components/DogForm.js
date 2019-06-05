@@ -1,5 +1,14 @@
 import React from 'react'
+import Select from 'react-select'
 import Input from './Input'
+
+const temperaments = [
+    {label: "Confident", value: "Confident"},
+    {label: "Independent", value: "Independent"},
+    {label: "Laid Back", value: "Laid Back"},
+    {label: "Shy", value: "Shy"},
+    {label: "Adaptable", value: "Adaptable"}
+]
 
 class DogForm extends React.Component {
     constructor(props) {
@@ -7,29 +16,25 @@ class DogForm extends React.Component {
         this.state = {
             name: '',
             breed: '',
+            temperament: [],
             bio: '',
             zip_code: ''
         }
         this.handleChange = this.handleChange.bind(this)
+        this.setTemperament = this.setTemperament.bind(this)
     }
     handleChange(event) {
         this.setState({
             [event.target.id]: event.target.value
         })
     }
+    setTemperament(temperament) {
+        this.setState({
+            temperament: temperament.value
+        })
+    }
     render() {
         return(
-            // <label htmlFor={this.props.name}>
-            //         {this.props.name}
-            //     </label>
-                
-            //     <input
-            //     id={this.props.id}
-            //     name={this.props.name}
-            //     type={this.props.type}
-            //     placeholder={this.props.placeholder}
-            //     value={this.props.value}
-            //     onChange={this.props.handleChange}/>
             <form>
 
                 <Input 
@@ -49,6 +54,12 @@ class DogForm extends React.Component {
                 handleChange={this.handleChange}/>
 
                 {/* Temperament dropdown here */}
+                <Select 
+                placeholder={"Select Temperament"}
+                options={temperaments}
+                value={temperaments.filter(({value}) => value === this.state.temperament)}
+                onChange={this.setTemperament}
+                clearable={true}/>
 
                 <Input 
                 id={"bio"}
