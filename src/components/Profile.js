@@ -44,8 +44,8 @@ class Profile extends React.Component {
     render() {
         // Temporary styling, replace when connecting component to stylesheet
         const imgStyle = {
-            width: '150px',
-            height: '150px'
+            width: '300px',
+            height: '200px'
         }
         return (
             <div>
