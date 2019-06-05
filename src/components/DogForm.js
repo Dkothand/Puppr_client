@@ -21,11 +21,24 @@ class DogForm extends React.Component {
             zip_code: ''
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
         this.setTemperament = this.setTemperament.bind(this)
     }
     handleChange(event) {
         this.setState({
             [event.target.id]: event.target.value
+        })
+    }
+    handleSubmit(event) {
+        // prevent page reload
+        event.preventDefault()
+        // pass state up to Profile handleAddDog
+        this.props.handleSubmit({
+            name: this.state.name,
+            breed: this.state.breed,
+            temperament: this.state.temperament,
+            bio: this.state.bio,
+            zip_code: this.state.zip_code
         })
     }
     setTemperament(temperament) {
@@ -35,7 +48,7 @@ class DogForm extends React.Component {
     }
     render() {
         return(
-            <form>
+            <form onSubmit={this.handleSubmit}>
 
                 <Input 
                 id={"name"}
@@ -53,13 +66,6 @@ class DogForm extends React.Component {
                 value={this.state.breed}
                 handleChange={this.handleChange}/>
 
-                {/* Temperament dropdown here */}
-                <Select 
-                placeholder={"Select Temperament"}
-                options={temperaments}
-                value={temperaments.filter(({value}) => value === this.state.temperament)}
-                onChange={this.setTemperament}
-                clearable={true}/>
 
                 <Input 
                 id={"bio"}
@@ -77,6 +83,14 @@ class DogForm extends React.Component {
                 value={this.state.zip_code}
                 handleChange={this.handleChange}/>
 
+                {/* Temperament dropdown here */}
+                <Select 
+                placeholder={"Select Temperament"}
+                options={temperaments}
+                value={temperaments.filter(({value}) => value === this.state.temperament)}
+                onChange={this.setTemperament}
+                clearable={true}/>
+                
                 <input type="submit" value="Add Your Dog!"/>
 
             </form>

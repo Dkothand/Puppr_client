@@ -22,6 +22,7 @@ class Profile extends React.Component {
             photos: []
         }
         this.logout = this.logout.bind(this)
+        this.handleAddDog = this.handleAddDog.bind(this)
     }
     componentDidMount() {
         const savedId = localStorage.getItem('id')
@@ -43,6 +44,11 @@ class Profile extends React.Component {
             })
         })
         .catch(err => console.error(err))        
+    }
+    handleAddDog(formInputs) {
+        console.log(formInputs)
+        //send fetch post to /users/:id/dogs
+        //update state on server response
     }
     logout() {
         localStorage.clear()
@@ -87,7 +93,7 @@ class Profile extends React.Component {
                   </main>
                 : <div>
                     <h1>You need a dog!</h1>
-                    <DogForm/>
+                    <DogForm handleSubmit={this.handleAddDog}/>
                   </div>
                 }
                 
