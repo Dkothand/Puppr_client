@@ -33,6 +33,7 @@ class Profile extends React.Component {
             }
         }).then(res => res.json())
         .then(resJSON => {
+            console.log("the resJSON", resJSON)
             this.setState({
                 userId: savedId,
                 user: savedUser,
@@ -61,9 +62,9 @@ class Profile extends React.Component {
                         <button>Browse</button>
                     </Link>
                     <button onClick={this.logout}>Logout</button>
-                    <button>Add Dog</button>
                 </aside>
-                <main>
+                {(Object.keys(this.state.dog).length)
+                ? <main>
                     <div>
                         {this.state.dog.name}
                     </div>
@@ -82,8 +83,9 @@ class Profile extends React.Component {
                         )
                         })
                     }
-                    
                 </main>
+                : <h1>You need a dog!</h1>}
+                
 
             </div>
         )

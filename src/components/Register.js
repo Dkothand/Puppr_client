@@ -62,7 +62,19 @@ class Register extends React.Component {
                 "Content-type": "application/json"
             }
         }).then(res => res.json())
-        .then(resJSON => console.log(resJSON))
+        .then(resJSON => {
+            console.log(resJSON)
+            // Save token and user info to localStorage
+            localStorage.setItem('token', JSON.stringify(resJSON.token))
+            localStorage.setItem('user', JSON.stringify(resJSON.user.username))
+            localStorage.setItem('id', JSON.stringify(resJSON.user.id))
+        })
+        .then(() => {
+            // Save user session in state
+            this.props.isAuthenticated(true)
+            // Redirect to home page
+            this.props.history.push("/home")
+        })
         .catch(err => console.error(err))
     }
     render() {
