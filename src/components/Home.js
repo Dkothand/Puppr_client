@@ -46,6 +46,9 @@ class Home extends React.Component {
     logout() {
         // Clear token and user info from localStorage
         localStorage.clear()
+        
+        // add isAuthenticated function from app
+
         // Redirect to login page
         this.props.history.push("/login")
     }

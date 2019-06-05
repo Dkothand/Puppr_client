@@ -17,10 +17,8 @@ console.log('current baseURL:', baseURL)
 class Register extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-          //pass
-        }
         this.authenticateUser = this.authenticateUser.bind(this)
+        this.registerUser = this.registerUser.bind(this)
     }
     // function for user login
     authenticateUser(formInputs) {
@@ -43,6 +41,11 @@ class Register extends React.Component {
             localStorage.setItem('token', JSON.stringify(resJSON.token))
             localStorage.setItem('user', JSON.stringify(resJSON.user.username))
             localStorage.setItem('id', JSON.stringify(resJSON.user.id))
+        })
+        .then(() => {
+            // Save user session in state
+            this.props.isAuthenticated(true)
+            // Redirect to home page
             this.props.history.push("/home")
         })
         .catch(err => console.error(err))

@@ -11,8 +11,14 @@ class App extends React.Component {
     this.state = {
       isAuth: false
     }
+    this.isAuthenticated = this.isAuthenticated.bind(this)
   }
   // auth check needs to be here
+  isAuthenticated(authenticate) {
+    this.setState({
+      isAuth: authenticate
+    })
+  }
   // <Route path="/profile" component={() => this.state.isAuth ? <Profile/> : <Redirect to="/login"/>}
   render() {
     return (
@@ -20,11 +26,16 @@ class App extends React.Component {
         {/* <div></div> */}
         <Switch>
           <Route exact path='/' component={LandingPage}/>
-          <Route path='/login' component={Register}/>
+          <Route 
+            path='/login'
+            render={(props) => <Register {...props} isAuthenticated={this.isAuthenticated}/>}
+          />
           <Route path='/home' component={Home}/>
 
           {/* Protected Route */}
-          <Route path='/profile' component={() => this.state.isAuth ? <Profile/> : <Redirect to="/login"/>}/>
+          <Route path='/profile' component={() => this.state.isAuth 
+          ? <Profile/> 
+          : <Redirect to="/login"/>}/>
 
           {/* Build 404 page here */}
         </Switch>
