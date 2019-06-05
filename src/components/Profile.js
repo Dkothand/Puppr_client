@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import DogForm from './DogForm'
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -33,7 +34,7 @@ class Profile extends React.Component {
             }
         }).then(res => res.json())
         .then(resJSON => {
-            console.log("the resJSON", resJSON)
+            // console.log("the resJSON", resJSON)
             this.setState({
                 userId: savedId,
                 user: savedUser,
@@ -83,8 +84,12 @@ class Profile extends React.Component {
                         )
                         })
                     }
-                </main>
-                : <h1>You need a dog!</h1>}
+                  </main>
+                : <div>
+                    <h1>You need a dog!</h1>
+                    <DogForm/>
+                  </div>
+                }
                 
 
             </div>
