@@ -20,6 +20,7 @@ class Profile extends React.Component {
             dog: [],
             photos: []
         }
+        this.logout = this.logout.bind(this)
     }
     componentDidMount() {
         const savedId = localStorage.getItem('id')
@@ -41,6 +42,11 @@ class Profile extends React.Component {
         })
         .catch(err => console.error(err))        
     }
+    logout() {
+        localStorage.clear()
+        // Change authenticated state in App to false
+        this.props.isAuthenticated(false)
+    }
     render() {
         // Temporary styling, replace when connecting component to stylesheet
         const imgStyle = {
@@ -54,7 +60,7 @@ class Profile extends React.Component {
                     <Link to="/home">
                         <button>Browse</button>
                     </Link>
-                    <button>Logout</button>
+                    <button onClick={this.logout}>Logout</button>
                     <button>Add Dog</button>
                 </aside>
                 <main>

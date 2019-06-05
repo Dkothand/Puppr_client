@@ -34,7 +34,7 @@ class App extends React.Component {
 
           {/* Protected Route */}
           <Route path='/profile' component={() => this.state.isAuth 
-          ? <Profile/> 
+          ? <Profile isAuthenticated={this.isAuthenticated}/> 
           : <Redirect to="/login"/>}/>
 
           {/* Build 404 page here */}
