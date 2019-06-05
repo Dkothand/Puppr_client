@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isAuth: false
+      isAuth: true
     }
     this.isAuthenticated = this.isAuthenticated.bind(this)
   }
@@ -28,7 +28,7 @@ class App extends React.Component {
           <Route exact path='/' component={LandingPage}/>
           <Route 
             path='/login'
-            render={(props) => <Register {...props} isAuthenticated={this.isAuthenticated}/>}
+            render={(props) => <Register {...props} isAuthenticated={this.isAuthenticated} />}
           />
           <Route path='/home' component={Home}/>
 
