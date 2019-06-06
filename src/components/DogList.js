@@ -64,7 +64,7 @@ class DogList extends React.Component {
 
                                     // </div>
 
-                                    <Dog dog={dog}/>
+                                    <Dog key={dog.id} dog={dog}/>
                                 )
                             })
                         }
