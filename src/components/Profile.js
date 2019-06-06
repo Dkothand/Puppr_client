@@ -68,7 +68,20 @@ class Profile extends React.Component {
         }).catch(err => console.error(err))
     }
     handleAddPhoto(formInputs) {
-        console.log(formInputs)
+        // console.log(formInputs)
+        fetch(baseURL + `/dogs/${this.state.dog.id}/dogphotos`, {
+            method: 'POST',
+            body: JSON.stringify(formInputs),
+            headers: {
+                "Content-type": "application/json"
+            }
+        }).then(res => res.json())
+        .then(json => {
+            const copyPhotos = [json, ...this.state.photos]
+            this.setState({
+                photos: copyPhotos
+            })
+        }).catch(err => console.error(err))
     }
     logout() {
         localStorage.clear()
