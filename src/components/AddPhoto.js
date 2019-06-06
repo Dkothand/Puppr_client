@@ -22,6 +22,10 @@ class AddPhoto extends React.Component {
             img_link: this.state.img_link,
             details: this.state.details
         })
+        this.setState({
+            img_link: '',
+            details: ''
+        })
     }
     render() {
         return(

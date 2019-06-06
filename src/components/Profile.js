@@ -79,7 +79,8 @@ class Profile extends React.Component {
         .then(json => {
             const copyPhotos = [json, ...this.state.photos]
             this.setState({
-                photos: copyPhotos
+                photos: copyPhotos,
+                addPhoto: false
             })
         }).catch(err => console.error(err))
     }
