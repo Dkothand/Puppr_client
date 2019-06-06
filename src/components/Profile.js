@@ -89,11 +89,18 @@ class Profile extends React.Component {
                         {this.state.dog.name}
                     </div>
                     <div>
-                        {this.state.dog.bio}
+                        Breed: {this.state.dog.breed}
+                    </div>
+                    <div>
+                        Temperament: {this.state.dog.temperament}
+                    </div>
+                    <div>
+                        Bio: {this.state.dog.bio}
                     </div>
 
                     {(this.state.photos &&this.state.photos.length) 
                     ? <div>
+                        <button>Add Photo</button>
                         {this.state.photos.map(photo => {
                             return(
                                 <div key={photo.id}>
