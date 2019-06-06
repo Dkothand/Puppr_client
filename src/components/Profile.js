@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import DogForm from './DogForm'
+import AddPhoto from './AddPhoto'
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -24,6 +25,7 @@ class Profile extends React.Component {
         }
         this.logout = this.logout.bind(this)
         this.handleAddDog = this.handleAddDog.bind(this)
+        this.handleAddPhoto = this.handleAddPhoto.bind(this)
         this.toggleAddPhoto = this.toggleAddPhoto.bind(this)
     }
     componentDidMount() {
@@ -64,6 +66,9 @@ class Profile extends React.Component {
                 dog: json.dog
             })
         }).catch(err => console.error(err))
+    }
+    handleAddPhoto(formInputs) {
+        console.log(formInputs)
     }
     logout() {
         localStorage.clear()
@@ -108,7 +113,7 @@ class Profile extends React.Component {
                     <div>Area Code: {this.state.dog.zip_code}</div>
 
                     {this.state.addPhoto
-                    ? <p>add photo form here!</p>
+                    ? <AddPhoto handleSubmit={this.handleAddPhoto}/>
                     : null}
 
                     {(this.state.photos &&this.state.photos.length) 
