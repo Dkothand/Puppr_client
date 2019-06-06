@@ -19,10 +19,12 @@ class Profile extends React.Component {
             userId: '',
             user: '',
             dog: [],
-            photos: []
+            photos: [],
+            addPhoto: false
         }
         this.logout = this.logout.bind(this)
         this.handleAddDog = this.handleAddDog.bind(this)
+        this.toggleAddPhoto = this.toggleAddPhoto.bind(this)
     }
     componentDidMount() {
         const savedId = localStorage.getItem('id')
@@ -68,6 +70,11 @@ class Profile extends React.Component {
         // Change authenticated state in App to false
         this.props.isAuthenticated(false)
     }
+    toggleAddPhoto() {
+        this.setState(prevState => ({
+            addPhoto: !prevState.addPhoto
+        }))
+    }
     render() {
         // Temporary styling, replace when connecting component to stylesheet
         const imgStyle = {
@@ -82,6 +89,7 @@ class Profile extends React.Component {
                         <button>Browse</button>
                     </Link>
                     <button onClick={this.logout}>Logout</button>
+                    <button onClick={this.toggleAddPhoto}>Add Photo</button>
                 </aside>
                 {(Object.keys(this.state.dog).length)
                 ? <main>
@@ -97,10 +105,14 @@ class Profile extends React.Component {
                     <div>
                         Bio: {this.state.dog.bio}
                     </div>
+                    <div>Area Code: {this.state.dog.zip_code}</div>
+
+                    {this.state.addPhoto
+                    ? <p>add photo form here!</p>
+                    : null}
 
                     {(this.state.photos &&this.state.photos.length) 
                     ? <div>
-                        <button>Add Photo</button>
                         {this.state.photos.map(photo => {
                             return(
                                 <div key={photo.id}>
