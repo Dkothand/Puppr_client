@@ -16,13 +16,16 @@ class LandingPage extends React.Component {
                 
                 {/* Needs to be below video to be visible */}
                 <header className="landing-content">
-                    <h1>Puppr</h1>
-                    <Link to="/login">
-                        <button className="btn">Register</button>
-                    </Link>
-                    <Link to="/home">
-                        <button className="btn">Browse</button>
-                    </Link>
+                    <article className="landing-text">
+                        <h1 className="landing-header">Puppr</h1>
+                        <h4>A way to meet and play with other dogs.</h4>
+                        <Link to="/login">
+                            <button className="btn btn-landing">Register</button>
+                        </Link>
+                        <Link to="/home">
+                            <button className="btn btn-landing">Browse</button>
+                        </Link>
+                    </article>
                 </header>
             </div>
         )

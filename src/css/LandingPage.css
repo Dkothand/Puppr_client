@@ -7,7 +7,8 @@ font-family: 'Montserrat', sans-serif; */
 
 
 h1  {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 video {
@@ -19,6 +20,7 @@ video {
     left: 0;
 }
 
+/* header element over background video/img covers entire view height*/
 .landing-content {
     position: relative;
     height: 100vh;
@@ -26,8 +28,39 @@ video {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.3)) */
 }
 
+
+/* Title */
+.landing-text {
+    color: #fff;
+    text-shadow: 2px 2px #000;
+    text-align: center;
+}
+
+/* Sub text */
+.landing-text > h4 {
+    padding: 10px;
+}
+
+/* Link components wrapping buttons */
+a {
+    margin: 0 10%;
+}
+
+/* buttons */
+.btn-landing {
+    font-size: 24px;
+    background-color: inherit;
+    border: 3px solid #fff;
+    border-radius: 5px;
+}
+
+.btn-landing:hover {
+    background-color: #9c7fb0;
+}
 
 @media (max-width: 600px) {
     video {
