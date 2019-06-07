@@ -1,0 +1,50 @@
+html {
+    background-color: #acb07f;
+    
+}
+
+form {
+    width: 60%;
+    background-color: #fff;
+    display: inline-block;
+    border-radius: 5px;
+    margin-bottom: 5%;
+}
+
+section {
+    color: #fff;
+    width: 40%;
+    background-color: inherit;
+    margin: 10% 2.5% 0 2.5%;
+    border: 1px solid #fff;
+    display: inline-block;
+
+}
+
+.btn[type=submit] {
+    background-color: #9c7fb0;
+}
+
+.container-auth {
+    width: 98%;
+    margin: 2% auto;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; */
+    text-align: center;
+    height: 90vh;
+    /* background-color: #9c7fb0; */
+    background-image: url("https://images.unsplash.com/photo-1526660690293-bcd32dc3b123");
+    background-size: cover;
+    
+}
+
+.container > h2 {
+    font-family: 'Montserrat', 'sans-serif';
+}
+
+@media (max-width: 600px) {
+    section {
+        width: 70%;
+    }
+}

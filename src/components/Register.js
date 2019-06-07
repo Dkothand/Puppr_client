@@ -1,6 +1,8 @@
 import React from 'react'
 import AuthForm from './AuthForm.js'
 
+import '../css/Register.css'
+
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -79,12 +81,16 @@ class Register extends React.Component {
     }
     render() {
         return(
-            <div>
-                <h2>Login</h2>
-                <AuthForm handleSubmit={this.authenticateUser} />
+            <div className="container-auth">
+                <section>
+                    <h2>Welcome Back!</h2>
+                    <AuthForm handleSubmit={this.authenticateUser} />
+                </section>
     
-                <h2>Signup</h2>
-                <AuthForm handleSubmit={this.registerUser} />
+                <section>
+                    <h2>Create Account</h2>
+                    <AuthForm handleSubmit={this.registerUser} />
+                </section>
             </div>
         )
     }
