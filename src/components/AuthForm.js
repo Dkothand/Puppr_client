@@ -48,7 +48,10 @@ class AuthForm extends React.Component {
                 placeholder={"Password"}
                 value={this.state.password}
                 handleChange={this.handleChange}/>
-                <input type="submit"/>
+                <button className="btn waves-effect waves-light" type="submit">
+                    Submit 
+                    <i className="material-icons right">send</i>
+                </button>
 
             </form>
         )
