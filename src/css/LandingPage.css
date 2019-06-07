@@ -1,6 +1,14 @@
 * {
     outline: 1px solid #000;
 }
+/* 
+font-family: 'Lato', sans-serif;
+font-family: 'Montserrat', sans-serif; */
+
+
+h1  {
+    font-family: 'Lato', sans-serif;
+}
 
 video {
     object-fit: cover;
@@ -18,4 +26,15 @@ video {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+@media (max-width: 600px) {
+    video {
+        display: none;
+    }
+
+    html {
+        background-color: blue;
+    }
 }

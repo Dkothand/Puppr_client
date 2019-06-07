@@ -18,10 +18,10 @@ class LandingPage extends React.Component {
                 <header className="landing-content">
                     <h1>Puppr</h1>
                     <Link to="/login">
-                        <button>Register</button>
+                        <button className="btn">Register</button>
                     </Link>
                     <Link to="/home">
-                        <button>Browse</button>
+                        <button className="btn">Browse</button>
                     </Link>
                 </header>
             </div>
