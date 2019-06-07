@@ -9,6 +9,7 @@ font-family: 'Montserrat', sans-serif; */
 h1  {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+    text-align: left;
 }
 
 video {
@@ -42,6 +43,7 @@ video {
 
 /* Sub text */
 .landing-text > h4 {
+    font-family: 'Lato', 'sans-serif';
     padding: 10px;
 }
 
@@ -50,17 +52,24 @@ a {
     margin: 0 10%;
 }
 
-/* buttons */
 .btn-landing {
-    font-size: 24px;
+    font-size: 18px;
     background-color: inherit;
-    border: 3px solid #fff;
+    color: #000;
+    border: 3px solid #b07f93;
     border-radius: 5px;
+    transition: all .5s;
 }
 
 .btn-landing:hover {
     background-color: #9c7fb0;
+    color: #fff;
 }
+
+.btn-landing:hover:after{
+    transition: all .5s;
+}
+
 
 @media (max-width: 600px) {
     video {
