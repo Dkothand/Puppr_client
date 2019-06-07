@@ -54,7 +54,7 @@ class Home extends React.Component {
     }
     render() {
         return(
-            <div>
+            <div className="container">
                 {this.state.isAuthenticated
                 ? <div>
                     <h1>Hello {this.state.user}!</h1>

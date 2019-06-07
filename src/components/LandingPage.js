@@ -13,6 +13,8 @@ class LandingPage extends React.Component {
                     <source src={webm} type="video/webm"/>
                     <source src={mp4} type={"video/mp4"}/>
                 </video>
+                
+                {/* Needs to be below video to be visible */}
                 <header className="landing-content">
                     <h1>Puppr</h1>
                     <Link to="/login">
