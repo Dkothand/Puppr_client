@@ -39,6 +39,8 @@ a[href="/profile"] {
     overflow: visible;
 }
 
+/* Column count bug fix 
+https://stackoverflow.com/questions/29624396/when-using-column-count-overflowing-content-completely-disappears-in-all-but-fi */
 .card-content {
     background-color: lightgray;
     will-change: transform;

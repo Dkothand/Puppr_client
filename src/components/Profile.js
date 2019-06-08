@@ -137,7 +137,7 @@ class Profile extends React.Component {
                     : null}
 
                     {(this.state.photos &&this.state.photos.length) 
-                    ? <div>
+                    ? <div className="photo-container">
                         {/* {this.state.photos.map(photo => {
                             return(
                                 <div key={photo.id}>

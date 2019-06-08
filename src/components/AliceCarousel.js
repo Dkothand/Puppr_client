@@ -32,15 +32,16 @@ class Gallery extends React.Component {
       const imgStyle = {
         width: '100%',
         height: 'auto'
-    }
+      }
 
-      return (<AliceCarousel
+      return (
+      <AliceCarousel
         fadeOutAnimation={true}
         dotsDisabled={true}
         buttonsDisabled={true}
         slideToIndex={currentIndex}
-        onSlideChanged={this.onSlideChanged}
-      >
+        onSlideChanged={this.onSlideChanged}>
+
         { photos.map((photo, i) => 
         <div key={i} className="carousel-item">
             {/* <h2>{ item }</h2> */}
@@ -55,7 +56,7 @@ class Gallery extends React.Component {
 
     render() {
       return (
-        <div>
+        <div className="photo-gallery">
           <h3>Photos</h3>
           <button onClick={() => this.slidePrev()}>{"<<<"}</button>
           <button onClick={() => this.slideNext()}>{">>>"}</button>
