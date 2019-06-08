@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import '../css/Home.css'
 import DogList from './DogList.js'
 
 let baseURL = process.env.REACT_APP_BASEURL
@@ -54,19 +55,19 @@ class Home extends React.Component {
     }
     render() {
         return(
-            <div className="container">
+            <div className="container-home">
                 {this.state.isAuthenticated
-                ? <div>
+                ? <div className="header-text">
                     <h1>Hello {this.state.user}!</h1>
                     <button onClick={this.logout}>Logout</button>
                     <Link to="/profile">
                         <button>My Profile</button>
                     </Link>
                   </div>
-                : <div>
-                    <h1>Browse Dogs</h1>
-                    <Link to="/login">
-                        <button>Signup</button>
+                : <div className="header-text">
+                    <h1>Puppr</h1>
+                    <Link className="link-login" to="/login">
+                        <button className="btn btn-signup">Signup</button>
                     </Link>
                   </div>
                 }

@@ -1,5 +1,8 @@
 import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
+
+import './App.css'
+
 import LandingPage from './components/LandingPage'
 import Register from './components/Register'
 import Home from './components/Home'

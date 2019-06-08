@@ -1,0 +1,21 @@
+.container-home {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header-text {
+    text-align: left;
+}
+
+.list-header {
+    display: inline-block;
+}
+
+.dog-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.link-login {
+    margin: 0;
+}
