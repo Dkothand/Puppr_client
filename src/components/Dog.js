@@ -1,4 +1,6 @@
 import React from 'react'
+import ImageLoader from './ImageLoader'
+import LazyLoad from 'react-lazy-load'
 
 import noImage from '../assets/No-Image-Available.jpg'
 
@@ -40,21 +42,29 @@ class Dog extends React.Component {
                         </div>
                     </div>
                     */}
-    
-                    <div className="card-image">
-                        {
-                            (this.props.dog.dog_photos.length > 0)
-                            ? <img 
-                            onClick={this.openInfo}
-                            // style={imgStyle}
-                            src={this.props.dog.dog_photos[0]["img_link"]} 
-                            alt={this.props.dog.name}/>
-                            : <img
-                            style={imgStyle}
-                            src={noImage}
-                            alt={"Not available"}/>
-                        }
-                    </div>
+                    
+                        <div className="card-image">
+                            {
+                                (this.props.dog.dog_photos.length > 0)
+                                ? <LazyLoad
+                                debounce={false}
+                                offsetVertical={500}>
+                                    {/* <img 
+                                    onClick={this.openInfo}
+                                    // style={imgStyle}
+                                    src={this.props.dog.dog_photos[0]["img_link"]} 
+                                    alt={this.props.dog.name}/> */}
+                                    <ImageLoader
+                                    src={this.props.dog.dog_photos[0]["img_link"]}/>
+                                </LazyLoad>
+                                    
+                                    : <img
+                                    style={imgStyle}
+                                    src={noImage}
+                                    alt={"Not available"}/>
+                                }
+                        </div>
+                    
     
                     <div className="card-content">
                         <span className="card-title activator grey-text text-darken-4">

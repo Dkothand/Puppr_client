@@ -10,6 +10,7 @@
     "react": "^16.8.6",
     "react-alice-carousel": "^1.14.0",
     "react-dom": "^16.8.6",
+    "react-lazy-load": "^3.0.13",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "react-select": "^3.0.4"
