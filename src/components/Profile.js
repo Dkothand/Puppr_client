@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import DogInfo from './DogInfo'
 import DogForm from './DogForm'
 import AddPhoto from './AddPhoto'
 import Gallery from './AliceCarousel'
@@ -117,7 +118,7 @@ class Profile extends React.Component {
 
                 {(Object.keys(this.state.dog).length)
                 ? <main>
-                    <div>
+                    {/* <div>
                         {this.state.dog.name}
                     </div>
                     <div>
@@ -129,7 +130,7 @@ class Profile extends React.Component {
                     <div>
                         Bio: {this.state.dog.bio}
                     </div>
-                    <div>Area Code: {this.state.dog.zip_code}</div>
+                    <div>Area Code: {this.state.dog.zip_code}</div> */}
 
                     {this.state.addPhoto
                     ? <AddPhoto handleSubmit={this.handleAddPhoto}/>
@@ -150,8 +151,10 @@ class Profile extends React.Component {
                         } */}
                         <Gallery photos={this.state.photos} />
                       </div>
-                    : <p>No photos!</p>
+                    : <h3>No photos! Be sure to add some!</h3>
                     }
+
+                    <DogInfo dog={this.state.dog}/>
                   </main>
                 : <div>
                     <h1>You need a dog!</h1>

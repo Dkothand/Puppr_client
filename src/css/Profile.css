@@ -4,3 +4,17 @@
     width: 90%;
     margin: 0 auto;
 }
+
+.container-profile > h1 {
+    margin: 0;
+}
+
+.alice-carousel {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.carousel-image {
+    max-width: 100%;
+    height: auto;
+}

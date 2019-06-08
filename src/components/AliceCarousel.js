@@ -45,6 +45,7 @@ class Gallery extends React.Component {
         <div key={i} className="carousel-item">
             {/* <h2>{ item }</h2> */}
             <img 
+            className={"carousel-img"}
             style={imgStyle}
             src={photo.img_link} 
             alt={photo.details}/>
@@ -56,11 +57,11 @@ class Gallery extends React.Component {
       return (
         <div>
           <h3>Photos</h3>
-          {/* { this.renderThumbs() } */}
-          <button onClick={() => this.slidePrev()}>Prev button</button>
-          <button onClick={() => this.slideNext()}>Next button</button>
+          <button onClick={() => this.slidePrev()}>{"<<<"}</button>
+          <button onClick={() => this.slideNext()}>{">>>"}</button>
           {/* <h3>React Alice Carousel</h3> */}
           { this.renderGallery() }
+          { this.renderThumbs() }
         </div>
       );
     }
