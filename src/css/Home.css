@@ -11,16 +11,27 @@
     display: inline-block;
 }
 
+.row {
+    border: 1px solid #000;
+    background-color: #fff;
+}
+
 .card {
     margin: 2%;
     display: inline-block;
     overflow: visible;
 }
 
+.card-content {
+    background-color: #9c7fb0;
+}
+
 .link-login {
     margin: 0;
 }
 
+/* Inspiration for setting cards in multiple columns
+https://codepen.io/mike-north/pen/MwVoYp?editors=1100 */
 @media (max-width: 600px) {
     .cards-container {
         column-count: 1;
