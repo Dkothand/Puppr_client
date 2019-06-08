@@ -2,6 +2,9 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import DogForm from './DogForm'
 import AddPhoto from './AddPhoto'
+import Gallery from './AliceCarousel'
+
+import '../css/Profile.css'
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -96,12 +99,12 @@ class Profile extends React.Component {
     }
     render() {
         // Temporary styling, replace when connecting component to stylesheet
-        const imgStyle = {
-            width: '300px',
-            height: '200px'
-        }
+        // const imgStyle = {
+        //     width: '300px',
+        //     height: '200px'
+        // }
         return (
-            <div>
+            <div className="container-profile">
                 <h1>{this.state.user}'s Profile</h1>
                 <aside>
                     <Link to="/home">
@@ -110,6 +113,8 @@ class Profile extends React.Component {
                     <button onClick={this.logout}>Logout</button>
                     <button onClick={this.toggleAddPhoto}>Add Photo</button>
                 </aside>
+
+
                 {(Object.keys(this.state.dog).length)
                 ? <main>
                     <div>
@@ -132,7 +137,7 @@ class Profile extends React.Component {
 
                     {(this.state.photos &&this.state.photos.length) 
                     ? <div>
-                        {this.state.photos.map(photo => {
+                        {/* {this.state.photos.map(photo => {
                             return(
                                 <div key={photo.id}>
                                     <img style={imgStyle}
@@ -142,7 +147,8 @@ class Profile extends React.Component {
                                 </div>   
                             )
                             })
-                        }
+                        } */}
+                        <Gallery photos={this.state.photos} />
                       </div>
                     : <p>No photos!</p>
                     }
@@ -152,6 +158,7 @@ class Profile extends React.Component {
                     <DogForm handleSubmit={this.handleAddDog}/>
                   </div>
                 }
+
                 
 
             </div>
