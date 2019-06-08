@@ -1,10 +1,19 @@
 .container-home {
+    background-color: #fff;
     width: 80%;
     margin: 0 auto;
 }
 
+.header-text > h1 {
+    margin: 0;
+}
+
 .header-text {
     text-align: left;
+}
+
+.btn {
+    background-color: gray;
 }
 
 .list-header {
@@ -23,8 +32,14 @@
 }
 
 .card-content {
-    background-color: #9c7fb0;
+    background-color: lightgray;
+    will-change: transform;
 }
+
+/* .card-title {
+    background-color: #fff;
+    border-radius: 5px;
+} */
 
 .link-login {
     margin: 0;
