@@ -91,7 +91,7 @@ class DogForm extends React.Component {
                 onChange={this.setTemperament}
                 clearable={true}/>
                 
-                <input type="submit" value="Add Your Dog!"/>
+                <button className="btn" type="submit">Add Your Dog!</button>
 
             </form>
         )

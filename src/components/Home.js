@@ -59,9 +59,9 @@ class Home extends React.Component {
                 {this.state.isAuthenticated
                 ? <div className="header-text">
                     <h1>Hello {this.state.user}!</h1>
-                    <button onClick={this.logout}>Logout</button>
+                    <button className="btn" onClick={this.logout}>Logout</button>
                     <Link to="/profile">
-                        <button>My Profile</button>
+                        <button className="btn" >My Profile</button>
                     </Link>
                   </div>
                 : <div className="header-text">

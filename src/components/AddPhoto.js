@@ -47,7 +47,7 @@ class AddPhoto extends React.Component {
                 value={this.state.details}
                 handleChange={this.handleChange}/>
 
-                <input type="submit" value="Add Photo"/>
+                <button className="btn" type="submit">Add Photo</button>
 
             </form>
         )

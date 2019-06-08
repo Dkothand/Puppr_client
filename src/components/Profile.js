@@ -109,10 +109,10 @@ class Profile extends React.Component {
                 <h1>{this.state.user}'s Profile</h1>
                 <aside>
                     <Link to="/home">
-                        <button>Browse</button>
+                        <button className="btn" >Browse</button>
                     </Link>
-                    <button onClick={this.logout}>Logout</button>
-                    <button onClick={this.toggleAddPhoto}>Add Photo</button>
+                    <button className="btn" onClick={this.logout}>Logout</button>
+                    <button className="btn" onClick={this.toggleAddPhoto}>Add Photo</button>
                 </aside>
 
 
@@ -157,7 +157,7 @@ class Profile extends React.Component {
                     <DogInfo dog={this.state.dog}/>
                   </main>
                 : <div>
-                    <h1>You need a dog!</h1>
+                    <h1 className="center">You need a dog!</h1>
                     <DogForm handleSubmit={this.handleAddDog}/>
                   </div>
                 }

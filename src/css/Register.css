@@ -1,5 +1,5 @@
 html {
-    background-color: #acb07f;
+    background-color:  #3b5998;
 }
 
 form {
@@ -21,7 +21,7 @@ section {
 }
 
 .btn[type=submit] {
-    background-color: #9c7fb0;
+    background-color: gray;
 }
 
 .container-auth {

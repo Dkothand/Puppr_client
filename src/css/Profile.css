@@ -1,6 +1,7 @@
 @import "../../node_modules/react-alice-carousel/lib/alice-carousel.css";
 
 .container-profile {
+    background-color: #fff;
     width: 90%;
     margin: 0 auto;
 }
