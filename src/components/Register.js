@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import AuthForm from './AuthForm.js'
 
 import '../css/Register.css'
@@ -91,6 +92,7 @@ class Register extends React.Component {
                     <h2>Create Account</h2>
                     <AuthForm handleSubmit={this.registerUser} />
                 </section>
+                <Link to="/home">That's ok, I just want to look at dogs >>></Link>
             </div>
         )
     }

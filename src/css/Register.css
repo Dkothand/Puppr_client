@@ -15,7 +15,7 @@ section {
     color: #fff;
     width: 40%;
     background-color: inherit;
-    margin: 10% 2.5% 0 2.5%;
+    margin: 10% 2.5% 5% 2.5%;
     border: 1px solid #fff;
     display: inline-block;
 
@@ -41,6 +41,12 @@ section {
 
 .container > h2 {
     font-family: 'Montserrat', 'sans-serif';
+}
+
+/* Link to browse */
+a[href="/home"] {
+    color: #fff;
+    text-decoration: underline;
 }
 
 @media (max-width: 600px) {
