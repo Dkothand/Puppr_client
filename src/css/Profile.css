@@ -13,9 +13,22 @@
 .alice-carousel {
     width: 50%;
     margin: 0 auto;
+    /* height: 300px; */
 }
 
 .carousel-image {
     max-width: 100%;
     height: auto;
+}
+
+aside {
+    text-align: left;
+}
+
+aside .btn {
+    margin: 0 2%;
+}
+
+aside > a[href="/home"] {
+    margin: 0;
 }

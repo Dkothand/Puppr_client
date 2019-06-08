@@ -27,7 +27,7 @@ class Gallery extends React.Component {
       </ul>;
 
     renderGallery() {
-      const { currentIndex, items } = this.state;
+      const { currentIndex } = this.state;
       const { photos } = this.props;
       const imgStyle = {
         width: '100%',
