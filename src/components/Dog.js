@@ -1,5 +1,7 @@
 import React from 'react'
 
+import noImage from '../assets/No-Image-Available.jpg'
+
 class Dog extends React.Component {
     constructor(props) {
         super(props)
@@ -30,7 +32,10 @@ class Dog extends React.Component {
                     style={imgStyle}
                     src={this.props.dog.dog_photos[0]["img_link"]} 
                     alt={this.props.dog.name}/>
-                : <h3>No photos</h3> /* Replace with stock photo link*/
+                : <img
+                    style={imgStyle}
+                    src={noImage}
+                    alt={"Not available"}/> /* Replace with stock photo link*/
                 }
                 
                 {
