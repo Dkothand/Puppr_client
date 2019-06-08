@@ -1,5 +1,11 @@
 @import "../../node_modules/react-alice-carousel/lib/alice-carousel.css";
 
+h3, h4 {
+    margin-top: 1rem;
+}
+
+
+
 .container-profile {
     background-color: #fff;
     width: 90%;
@@ -31,4 +37,26 @@ aside .btn {
 
 aside > a[href="/home"] {
     margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start
+}
+
+.photo-container {
+    display: inline-block;
+    width: 60%;
+
+}
+
+.dog-info {
+    display: inline-block;
+    width: 35%;
+    margin: 0 auto;
+}
+
+.bio-content {
+    padding: 5px;
 }
