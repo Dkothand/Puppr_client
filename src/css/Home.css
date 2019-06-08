@@ -11,11 +11,30 @@
     display: inline-block;
 }
 
-.dog-container {
-    display: flex;
-    flex-wrap: wrap;
+.card {
+    margin: 2%;
+    display: inline-block;
+    overflow: visible;
 }
 
 .link-login {
     margin: 0;
+}
+
+@media (max-width: 600px) {
+    .cards-container {
+        column-count: 1;
+    }
+}
+
+@media (min-width: 601px) {
+    .cards-container {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 993px) {
+    .cards-container {
+        column-count: 3;
+    }
 }

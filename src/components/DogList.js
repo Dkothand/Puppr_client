@@ -41,12 +41,18 @@ class DogList extends React.Component {
                 <>
                     <h2 className="list-header">Browse Dogs</h2>
                     <div className="dog-container">
-                        {this.state.dogs.map(dog => {
-                                return(
-                                    <Dog key={dog.id} dog={dog}/>
-                                )
-                            })
-                        }
+                        <div className="row">
+                            <div className="col s12 cards-container">
+                                {this.state.dogs.map(dog => {
+                                        return(
+                                            <Dog 
+                                            key={dog.id} 
+                                            dog={dog}/>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
                     </div>
                 </>
             )
