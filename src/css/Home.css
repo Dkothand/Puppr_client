@@ -24,6 +24,11 @@ a[href="/profile"] {
     background-color: gray;
 }
 
+.btn-small {
+    color: #fff;
+    margin: 0 auto;
+}
+
 .list-header {
     display: inline-block;
 }
@@ -44,6 +49,14 @@ https://stackoverflow.com/questions/29624396/when-using-column-count-overflowing
 .card-content {
     background-color: lightgray;
     will-change: transform;
+}
+
+.card-reveal {
+    text-align: center;
+}
+
+.card-reveal h6 {
+    text-align: left;
 }
 
 /* .card-title {

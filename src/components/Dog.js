@@ -78,7 +78,13 @@ class Dog extends React.Component {
                             {this.props.dog.name}
                             <i className="material-icons right">close</i>
                         </span>
-                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        <div>
+                            <h6>Breed: {this.props.dog.breed}</h6>
+                            <h6>Area Code: {this.props.dog.zip_code}</h6>
+                            <h6>Temperament: {this.props.dog.temperament}</h6>
+                            <h6>Bio: {this.props.dog.bio}</h6>
+                            <button className="btn btn-flat btn-small">Connect!</button>
+                        </div>  
                     </div>
                     
                     
