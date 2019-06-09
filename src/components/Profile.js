@@ -27,12 +27,35 @@ class Profile extends React.Component {
             photos: [],
             addPhoto: false
         }
+        this.getUserInfo = this.getUserInfo.bind(this)
         this.logout = this.logout.bind(this)
         this.handleAddDog = this.handleAddDog.bind(this)
         this.handleAddPhoto = this.handleAddPhoto.bind(this)
         this.toggleAddPhoto = this.toggleAddPhoto.bind(this)
     }
     componentDidMount() {
+        // const savedId = localStorage.getItem('id')
+        // const savedUser = localStorage.getItem('user').replace(/"/g, '')
+        // // get user dog, if any
+        // fetch(baseURL + `/users/${savedId}/dog`, {
+        //     method: 'GET',
+        //     headers: {
+        //         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+        //     }
+        // }).then(res => res.json())
+        // .then(resJSON => {
+        //     // console.log("the resJSON", resJSON)
+        //     this.setState({
+        //         userId: savedId,
+        //         user: savedUser,
+        //         dog: resJSON,
+        //         photos: resJSON.dog_photos
+        //     })
+        // })
+        // .catch(err => console.error(err))        
+        this.getUserInfo()
+    }
+    getUserInfo() {
         const savedId = localStorage.getItem('id')
         const savedUser = localStorage.getItem('user').replace(/"/g, '')
         // get user dog, if any
@@ -51,7 +74,7 @@ class Profile extends React.Component {
                 photos: resJSON.dog_photos
             })
         })
-        .catch(err => console.error(err))        
+        .catch(err => console.error(err)) 
     }
     handleAddDog(formInputs) {
         // console.log(formInputs)
@@ -81,13 +104,20 @@ class Profile extends React.Component {
             }
         }).then(res => res.json())
         .then(json => {
+            let copyPhotos;
             // this won't work when photos array is initially empty
-            // const copyPhotos = [json, ...this.state.photos]
+            if (this.state.photos && this.state.photos.length) {
+                copyPhotos = [json, ...this.state.photos]
+            } else {
+                copyPhotos = json
+            }
             this.setState(prevState => ({
-                photos: prevState.photos.concat(json),
+                // photos: prevState.photos.concat(json),
+                photos: copyPhotos,
                 addPhoto: !prevState.addPhoto
             }))
-        }).catch(err => console.error(err))
+        })
+        .catch(err => console.error(err))
     }
     logout() {
         localStorage.clear()
