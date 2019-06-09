@@ -8,8 +8,8 @@ class Gallery extends React.Component {
     constructor() {
       super();
       this.state = {
-        currentIndex: 0,
-        items: [1,2,3]
+        currentIndex: 0
+        // items: [1,2,3]
       };
     }
 
@@ -48,7 +48,7 @@ class Gallery extends React.Component {
       return (
       <AliceCarousel
         fadeOutAnimation={true}
-        dotsDisabled={true}
+        dotsDisabled={false}
         buttonsDisabled={true}
         slideToIndex={currentIndex}
         onSlideChanged={this.onSlideChanged}>
@@ -78,7 +78,8 @@ class Gallery extends React.Component {
             <i className="material-icons">arrow_forward</i>
           </button>
           { this.renderGallery() }
-          { this.renderThumbs() }
+          {/* going with dots over thumbnails */}
+          {/* { this.renderThumbs() } */}
         </div>
       );
     }
