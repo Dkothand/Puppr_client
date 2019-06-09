@@ -65,7 +65,7 @@ class Profile extends React.Component {
         }).then(res => res.json())
         //update state on server response
         .then(json => {
-            console.log(json)
+            // console.log(json)
             this.setState({
                 dog: json.dog
             })
@@ -81,11 +81,12 @@ class Profile extends React.Component {
             }
         }).then(res => res.json())
         .then(json => {
-            const copyPhotos = [json, ...this.state.photos]
-            this.setState({
-                photos: copyPhotos,
-                addPhoto: false
-            })
+            // this won't work when photos array is initially empty
+            // const copyPhotos = [json, ...this.state.photos]
+            this.setState(prevState => ({
+                photos: prevState.photos.concat(json),
+                addPhoto: !prevState.addPhoto
+            }))
         }).catch(err => console.error(err))
     }
     logout() {
