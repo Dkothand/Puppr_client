@@ -72,10 +72,10 @@ class Gallery extends React.Component {
           <h3>Photos</h3>
           {/* <h3>React Alice Carousel</h3> */}
           <button className="btn btn-carousel" onClick={() => this.slidePrev()}>
-            <i class="material-icons">arrow_back</i>
+            <i className="material-icons">arrow_back</i>
           </button>
           <button className="btn btn-carousel" onClick={() => this.slideNext()}>
-            <i class="material-icons">arrow_forward</i>
+            <i className="material-icons">arrow_forward</i>
           </button>
           { this.renderGallery() }
           { this.renderThumbs() }

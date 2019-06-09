@@ -48,52 +48,54 @@ class DogForm extends React.Component {
     }
     render() {
         return(
-            <form onSubmit={this.handleSubmit}>
-
-                <Input 
-                id={"name"}
-                name={"name"}
-                type={"text"}
-                placeholder={"Dog Name"}
-                value={this.state.name}
-                handleChange={this.handleChange}/>
-
-                <Input 
-                id={"breed"}
-                name={"breed"}
-                type={"text"}
-                placeholder={"Dog Breed"}
-                value={this.state.breed}
-                handleChange={this.handleChange}/>
-
-
-                <Input 
-                id={"bio"}
-                name={"bio"}
-                type={"text"}
-                placeholder={"Bio"}
-                value={this.state.bio}
-                handleChange={this.handleChange}/>
-
-                <Input 
-                id={"zip_code"}
-                name={"zip_code"}
-                type={"text"}
-                placeholder={"Enter zip code"}
-                value={this.state.zip_code}
-                handleChange={this.handleChange}/>
-
-                {/* Temperament dropdown here */}
-                <Select 
-                placeholder={"Select Temperament"}
-                options={temperaments}
-                value={temperaments.filter(({value}) => value === this.state.temperament)}
-                onChange={this.setTemperament}
-                clearable={true}/>
-                
-                <button className="btn" type="submit">Add Your Dog!</button>
-
-            </form>
+            <div className="center">
+                <form onSubmit={this.handleSubmit}>
+    
+                    <Input 
+                    id={"name"}
+                    name={"name"}
+                    type={"text"}
+                    placeholder={"Dog Name"}
+                    value={this.state.name}
+                    handleChange={this.handleChange}/>
+    
+                    <Input 
+                    id={"breed"}
+                    name={"breed"}
+                    type={"text"}
+                    placeholder={"Dog Breed"}
+                    value={this.state.breed}
+                    handleChange={this.handleChange}/>
+    
+    
+                    <Input 
+                    id={"bio"}
+                    name={"bio"}
+                    type={"text"}
+                    placeholder={"Bio"}
+                    value={this.state.bio}
+                    handleChange={this.handleChange}/>
+    
+                    <Input 
+                    id={"zip_code"}
+                    name={"zip_code"}
+                    type={"text"}
+                    placeholder={"Enter zip code"}
+                    value={this.state.zip_code}
+                    handleChange={this.handleChange}/>
+    
+                    {/* Temperament dropdown here */}
+                    <Select 
+                    placeholder={"Select Temperament"}
+                    options={temperaments}
+                    value={temperaments.filter(({value}) => value === this.state.temperament)}
+                    onChange={this.setTemperament}
+                    clearable={true}/>
+                    
+                    <button className="btn" type="submit">Add Your Dog!</button>
+    
+                </form>
+            </div>
         )
     }
 }
