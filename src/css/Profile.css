@@ -22,9 +22,16 @@ h3, h4 {
     /* height: 300px; */
 }
 
-.carousel-image {
-    max-width: 100%;
-    height: auto;
+.btn-carousel {
+    margin: 0 1%;
+}
+
+.carousel-item {
+    background-color: lightgray;
+}
+
+.carousel-item h6 {
+    margin-bottom: 0;
 }
 
 aside {
@@ -55,6 +62,15 @@ main {
     display: inline-block;
     width: 35%;
     margin: 0 auto;
+    background-color: lightgray;
+}
+
+.dog-info h4 {
+    background-color: #fff;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
 }
 
 .bio-content {

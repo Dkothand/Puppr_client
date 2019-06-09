@@ -22,8 +22,19 @@ class Gallery extends React.Component {
     slidePrev = () => this.setState({ currentIndex: this.state.currentIndex - 1 });
 
     renderThumbs = () =>
-      <ul>{this.state.items.map((item, i) =>
-        <li key={i} onClick={() => this.slideTo(i)}>Thumb {item}</li>)}
+      <ul className="center">{this.props.photos.map((photo, i) =>
+        // <li key={i} onClick={() => this.slideTo(i)}>Thumb {item}</li>)}
+        <img key={i}
+            onClick={() => this.slideTo(i)}
+            className={"carousel-img"}
+            style={
+              {
+                width: '75px',
+                height: '50px'
+              }
+            }
+            src={photo.img_link} 
+            alt={photo.details}/>)}
       </ul>;
 
     renderGallery() {
@@ -31,7 +42,7 @@ class Gallery extends React.Component {
       const { photos } = this.props;
       const imgStyle = {
         width: '100%',
-        height: 'auto'
+        height: '300px'
       }
 
       return (
@@ -50,6 +61,7 @@ class Gallery extends React.Component {
             style={imgStyle}
             src={photo.img_link} 
             alt={photo.details}/>
+            <h6 className="center">{photo.details}</h6>
         </div>) }
       </AliceCarousel>);
     }
@@ -58,9 +70,13 @@ class Gallery extends React.Component {
       return (
         <div className="photo-gallery">
           <h3>Photos</h3>
-          <button onClick={() => this.slidePrev()}>{"<<<"}</button>
-          <button onClick={() => this.slideNext()}>{">>>"}</button>
           {/* <h3>React Alice Carousel</h3> */}
+          <button className="btn btn-carousel" onClick={() => this.slidePrev()}>
+            <i class="material-icons">arrow_back</i>
+          </button>
+          <button className="btn btn-carousel" onClick={() => this.slideNext()}>
+            <i class="material-icons">arrow_forward</i>
+          </button>
           { this.renderGallery() }
           { this.renderThumbs() }
         </div>
