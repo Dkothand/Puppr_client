@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'development') {
   baseURL = 'https://afternoon-shore-81372.herokuapp.com'
 }
 
-console.log('current base URL:', baseURL)
+// console.log('current base URL:', baseURL)
 
 class DogList extends React.Component {
     constructor(props) {

@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isAuth: true
+      isAuth: true // look into context API
     }
     this.isAuthenticated = this.isAuthenticated.bind(this)
   }
@@ -22,11 +22,9 @@ class App extends React.Component {
       isAuth: authenticate
     })
   }
-  // <Route path="/profile" component={() => this.state.isAuth ? <Profile/> : <Redirect to="/login"/>}
   render() {
     return (
       <div className="App">
-        {/* <div></div> */}
         <Switch>
           <Route exact path='/' component={LandingPage}/>
           <Route 

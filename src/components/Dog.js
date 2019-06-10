@@ -18,90 +18,52 @@ class Dog extends React.Component {
         }))
     }
     render() {
-        // Temporary image sizing until we link css
+        const {dog} = this.props
+        // Image sizing for stock photo not found
         const imgStyle = {
             width: '300px',
             height: '200px'
         }
         return(
-            // <div className="col s12 m6 l4">
                 <div className="card hoverable">
-    
-                    {/* 
-                    <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="images/office.jpg">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                            <p><a href="#">This is a link</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                        </div>
-                    </div>
-                    */}
-                    
                         <div className="card-image">
-                            {
-                                (this.props.dog.dog_photos.length > 0)
+                            {(dog.dog_photos.length > 0)
                                 ? <LazyLoad
                                 debounce={false}
                                 offsetVertical={500}>
-                                    {/* <img 
-                                    onClick={this.openInfo}
-                                    // style={imgStyle}
-                                    src={this.props.dog.dog_photos[0]["img_link"]} 
-                                    alt={this.props.dog.name}/> */}
                                     <ImageLoader
-                                    src={this.props.dog.dog_photos[0]["img_link"]}/>
+                                    src={dog.dog_photos[0]["img_link"]}/>
                                 </LazyLoad>
                                     
-                                    : <img
-                                    style={imgStyle}
-                                    src={noImage}
-                                    alt={"Not available"}/>
+                                : <img
+                                style={imgStyle}
+                                src={noImage}
+                                alt={"Not available"}/>
                                 }
                         </div>
                     
     
                     <div className="card-content">
                         <span className="card-title activator grey-text text-darken-4">
-                        {this.props.dog.name}
+                        {dog.name}
                             <i className="material-icons right">more_vert</i>
                         </span>
                     </div>
     
                     <div className="card-reveal">
                         <span className="card-title grey-text text-darken-4">
-                            {this.props.dog.name}
+                            {dog.name}
                             <i className="material-icons right">close</i>
                         </span>
                         <div>
-                            <h6>Breed: {this.props.dog.breed}</h6>
-                            <h6>Area Code: {this.props.dog.zip_code}</h6>
-                            <h6>Temperament: {this.props.dog.temperament}</h6>
-                            <h6>Bio: {this.props.dog.bio}</h6>
+                            <h6>Breed: {dog.breed}</h6>
+                            <h6>Area Code: {dog.zip_code}</h6>
+                            <h6>Temperament: {dog.temperament}</h6>
+                            <h6>Bio: {dog.bio}</h6>
                             <button className="btn btn-flat btn-small">Connect!</button>
                         </div>  
                     </div>
-                    
-                    
-                    {/* {
-                    (this.state.isOpen)
-                    ? <div>
-                        <h5>Breed: {this.props.dog.breed}</h5>
-                        <h5>Area Code: {this.props.dog.zip_code}</h5>
-                        <h5>Temperament: {this.props.dog.temperament}</h5>
-                        <h5>Bio: {this.props.dog.bio}</h5>
-                    </div>
-                    : null
-                    } */}
-    
-    
                 </div>
-            // </div>
         )
     }
 }

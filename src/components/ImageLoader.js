@@ -37,7 +37,6 @@ class ImageLoader extends React.Component {
 
     return <img 
              src={this.props.src} 
-            //  onClick={this.props.onClick} 
              className={className} 
              onLoad={this.onLoad} />;
   }

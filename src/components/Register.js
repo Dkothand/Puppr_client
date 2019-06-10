@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'development') {
   baseURL = 'https://afternoon-shore-81372.herokuapp.com'
 }
 
-console.log('current baseURL:', baseURL)
+// console.log('current baseURL:', baseURL)
 
 class Register extends React.Component {
     constructor(props) {
@@ -25,7 +25,6 @@ class Register extends React.Component {
     }
     // function for user login
     authenticateUser(formInputs) {
-        // console.log(formInputs)
         fetch(baseURL + '/users/login', {
         // Need to call JSON.stringify on body data
         // user is the param rails login() is looking for
@@ -52,7 +51,6 @@ class Register extends React.Component {
             this.props.history.push("/home")
         })
         .catch(err => console.error(err))
-        // Redirects to home page on successful login
     }
     // function for user signup
     registerUser(formInputs) {

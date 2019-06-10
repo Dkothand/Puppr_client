@@ -33,26 +33,7 @@ class Profile extends React.Component {
         this.handleAddPhoto = this.handleAddPhoto.bind(this)
         this.toggleAddPhoto = this.toggleAddPhoto.bind(this)
     }
-    componentDidMount() {
-        // const savedId = localStorage.getItem('id')
-        // const savedUser = localStorage.getItem('user').replace(/"/g, '')
-        // // get user dog, if any
-        // fetch(baseURL + `/users/${savedId}/dog`, {
-        //     method: 'GET',
-        //     headers: {
-        //         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-        //     }
-        // }).then(res => res.json())
-        // .then(resJSON => {
-        //     // console.log("the resJSON", resJSON)
-        //     this.setState({
-        //         userId: savedId,
-        //         user: savedUser,
-        //         dog: resJSON,
-        //         photos: resJSON.dog_photos
-        //     })
-        // })
-        // .catch(err => console.error(err))        
+    componentDidMount() {      
         this.getUserInfo()
     }
     getUserInfo() {
@@ -66,7 +47,6 @@ class Profile extends React.Component {
             }
         }).then(res => res.json())
         .then(resJSON => {
-            // console.log("the resJSON", resJSON)
             this.setState({
                 userId: savedId,
                 user: savedUser,
@@ -77,7 +57,6 @@ class Profile extends React.Component {
         .catch(err => console.error(err)) 
     }
     handleAddDog(formInputs) {
-        // console.log(formInputs)
         //send fetch post to /users/:id/dogs
         fetch(baseURL + `/users/${this.state.userId}/dogs`, {
             method: 'POST',
@@ -88,14 +67,12 @@ class Profile extends React.Component {
         }).then(res => res.json())
         //update state on server response
         .then(json => {
-            // console.log(json)
             this.setState({
                 dog: json.dog
             })
         }).catch(err => console.error(err))
     }
     handleAddPhoto(formInputs) {
-        // console.log(formInputs)
         fetch(baseURL + `/dogs/${this.state.dog.id}/dogphotos`, {
             method: 'POST',
             body: JSON.stringify(formInputs),
@@ -105,14 +82,13 @@ class Profile extends React.Component {
         }).then(res => res.json())
         .then(json => {
             let copyPhotos;
-            // this won't work when photos array is initially empty
+            // need conditional as spread operator won't work when photos array is initially empty
             if (this.state.photos && this.state.photos.length) {
                 copyPhotos = [json, ...this.state.photos]
             } else {
                 copyPhotos = json
             }
             this.setState(prevState => ({
-                // photos: prevState.photos.concat(json),
                 photos: copyPhotos,
                 addPhoto: !prevState.addPhoto
             }))
@@ -130,11 +106,6 @@ class Profile extends React.Component {
         }))
     }
     render() {
-        // Temporary styling, replace when connecting component to stylesheet
-        // const imgStyle = {
-        //     width: '300px',
-        //     height: '200px'
-        // }
         return (
             <div className="container-profile">
                 <h1>{this.state.user}'s Profile</h1>
@@ -146,55 +117,26 @@ class Profile extends React.Component {
                     <button className="btn" onClick={this.toggleAddPhoto}>Add Photo</button>
                 </aside>
 
-
                 {(Object.keys(this.state.dog).length)
                 ? <main>
-                    {/* <div>
-                        {this.state.dog.name}
-                    </div>
-                    <div>
-                        Breed: {this.state.dog.breed}
-                    </div>
-                    <div>
-                        Temperament: {this.state.dog.temperament}
-                    </div>
-                    <div>
-                        Bio: {this.state.dog.bio}
-                    </div>
-                    <div>Area Code: {this.state.dog.zip_code}</div> */}
-
                     {this.state.addPhoto
                     ? <AddPhoto handleSubmit={this.handleAddPhoto}/>
                     : null}
 
                     {(this.state.photos &&this.state.photos.length) 
                     ? <div className="photo-container">
-                        {/* {this.state.photos.map(photo => {
-                            return(
-                                <div key={photo.id}>
-                                    <img style={imgStyle}
-                                    src={photo.img_link}
-                                    alt={photo.details}/>
-                                    <div>{photo.details}</div> 
-                                </div>   
-                            )
-                            })
-                        } */}
                         <Gallery photos={this.state.photos} />
                       </div>
                     : <h3>No photos! Be sure to add some!</h3>
                     }
 
                     <DogInfo dog={this.state.dog}/>
-                  </main>
+                </main>
                 : <div>
                     <h1 className="center">You need a dog!</h1>
                     <DogForm handleSubmit={this.handleAddDog}/>
                   </div>
                 }
-
-                
-
             </div>
         )
     }

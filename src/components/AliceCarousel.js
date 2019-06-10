@@ -16,8 +16,6 @@ class Gallery extends React.Component {
 
     // trying to get added photos to update carousel
     componentDidUpdate(prevProps) {
-      console.log("prevProps",prevProps)
-      console.log(this.props.photos)
       if(this.props.photos.length !== prevProps.photos.length) {
         this.setState({
           photos: this.props.photos

@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'development') {
   baseURL = 'https://afternoon-shore-81372.herokuapp.com'
 }
 
-console.log('current baseURL:', baseURL)
+// console.log('current baseURL:', baseURL)
 
 class Home extends React.Component {
     constructor(props) {
@@ -25,9 +25,8 @@ class Home extends React.Component {
         this.logout = this.logout.bind(this)
     }
     componentDidMount() {
-        // get user authentication from localStorage
+        // get user information
         const id = localStorage.getItem('id')
-        // console.log(id)
         if (!id) {
             return
         } else {
@@ -47,9 +46,8 @@ class Home extends React.Component {
     logout() {
         // Clear token and user info from localStorage
         localStorage.clear()
-        
-        // add isAuthenticated function from app
-
+        // setisAuth in app.js to false
+        this.props.isAuthenticated(false)
         // Redirect to login page
         this.props.history.push("/login")
     }
@@ -71,10 +69,8 @@ class Home extends React.Component {
                     </Link>
                   </div>
                 }
-                
                 <DogList />
-            </div>
-            
+            </div>  
         )
     }
 }

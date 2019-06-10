@@ -2,19 +2,20 @@ import React from 'react'
 
 class Input extends React.Component {
     render() {
+        const {id, name, type, placeholder, value, handleChange} = this.props
         return(
             <>
-                <label htmlFor={this.props.name}>
-                    {this.props.name}
+                <label htmlFor={name}>
+                    {name}
                 </label>
                 
                 <input
-                id={this.props.id}
-                name={this.props.name}
-                type={this.props.type}
-                placeholder={this.props.placeholder}
-                value={this.props.value}
-                onChange={this.props.handleChange}/>
+                id={id}
+                name={name}
+                type={type}
+                placeholder={placeholder}
+                value={value}
+                onChange={handleChange}/>
             </>
         )
     }
