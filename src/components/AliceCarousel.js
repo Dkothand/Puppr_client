@@ -8,9 +8,21 @@ class Gallery extends React.Component {
     constructor() {
       super();
       this.state = {
-        currentIndex: 0
+        currentIndex: 0,
+        photos: [] // trying to get added photos to update
         // items: [1,2,3]
       };
+    }
+
+    // trying to get added photos to update carousel
+    componentDidUpdate(prevProps) {
+      console.log("prevProps",prevProps)
+      console.log(this.props.photos)
+      if(this.props.photos.length !== prevProps.photos.length) {
+        this.setState({
+          photos: this.props.photos
+        })
+      }
     }
 
     slideTo = (i) => this.setState({ currentIndex: i });
@@ -23,7 +35,6 @@ class Gallery extends React.Component {
 
     renderThumbs = () =>
       <ul className="center">{this.props.photos.map((photo, i) =>
-        // <li key={i} onClick={() => this.slideTo(i)}>Thumb {item}</li>)}
         <img key={i}
             onClick={() => this.slideTo(i)}
             className={"carousel-img"}
@@ -46,31 +57,29 @@ class Gallery extends React.Component {
       }
 
       return (
-      <AliceCarousel
-        fadeOutAnimation={true}
-        dotsDisabled={false}
-        buttonsDisabled={true}
-        slideToIndex={currentIndex}
-        onSlideChanged={this.onSlideChanged}>
+        <AliceCarousel
+          fadeOutAnimation={true}
+          dotsDisabled={true}
+          buttonsDisabled={true}
+          slideToIndex={currentIndex}
+          onSlideChanged={this.onSlideChanged}>
 
-        { photos.map((photo, i) => 
-        <div key={i} className="carousel-item">
-            {/* <h2>{ item }</h2> */}
-            <img 
-            className={"carousel-img"}
-            style={imgStyle}
-            src={photo.img_link} 
-            alt={photo.details}/>
-            <h6 className="center">{photo.details}</h6>
-        </div>) }
-      </AliceCarousel>);
+          { photos.map((photo, i) => 
+          <div key={i} className="carousel-item">
+              <img 
+              className={"carousel-img"}
+              style={imgStyle}
+              src={photo.img_link} 
+              alt={photo.details}/>
+              <h6 className="center">{photo.details}</h6>
+          </div>) }
+        </AliceCarousel>);
     }
 
     render() {
       return (
         <div className="photo-gallery">
           <h3>Photos</h3>
-          {/* <h3>React Alice Carousel</h3> */}
           <button className="btn btn-carousel" onClick={() => this.slidePrev()}>
             <i className="material-icons">arrow_back</i>
           </button>
@@ -78,8 +87,7 @@ class Gallery extends React.Component {
             <i className="material-icons">arrow_forward</i>
           </button>
           { this.renderGallery() }
-          {/* going with dots over thumbnails */}
-          {/* { this.renderThumbs() } */}
+          { this.renderThumbs() }
         </div>
       );
     }
