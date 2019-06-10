@@ -31,7 +31,10 @@ class App extends React.Component {
             path='/login'
             render={(props) => <Register {...props} isAuthenticated={this.isAuthenticated} />}
           />
-          <Route path='/home' component={Home}/>
+          <Route 
+            path='/home'
+            render={(props) => <Home {...props} isAuthenticated={this.isAuthenticated} />}
+          />
 
           {/* Protected Route */}
           <Route path='/profile' component={() => this.state.isAuth 
